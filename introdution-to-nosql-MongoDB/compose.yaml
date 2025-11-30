@@ -1,0 +1,15 @@
+service:
+  mongodb:
+    image: mongo:latest
+    container_name: learning-nosql-mongo
+    restart: always
+    enviroment:
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
+      MONGO_INITDB_DATABASE: ${DB_NAME}
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+volumes:
+  mongo_data
